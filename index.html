@@ -150,6 +150,19 @@
         }
     });
 
+
+
+    // Mostrar hora actual debajo del botón
+    function mostrarHora() {
+        const ahora = new Date();
+        const hora = ahora.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById('hora-actual').textContent = "Hora actual: " + hora;
+    }
+
+    // Cargar hora al abrir
+    mostrarHora();
+ 
+
     // Envío del formulario con validación
     document.getElementById('secure-form').addEventListener('submit', function(e){
         e.preventDefault();
@@ -160,7 +173,6 @@
             alert('Espere que se cargue la ubicación antes de enviar.');
             return;
         }
-
 
         const data = new FormData(form);
 
@@ -175,6 +187,8 @@
         
         });
     });
+
+
 
 </script>
 
