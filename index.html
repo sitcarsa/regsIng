@@ -215,8 +215,6 @@
 	<div class="hora" id="hora-actual"></div>
  
 </div>
-
-
 <script>
   // Captura coordenadas y llena campo
     function obtenerUbicacion() {
@@ -441,9 +439,7 @@
             alert('Espere que se cargue la ubicación antes de enviar.');
             return;
         }
-
-
-        const data = new FormData(form);
+       const data = new FormData(form);
 
        fetch(form.action, {
             method: 'POST',
