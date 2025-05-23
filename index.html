@@ -1,91 +1,199 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Ingreso Seguro Completo</title>
-    <style>
-     
-   body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-        input, select, button {
-            display: block;
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        input[readonly] {
-            background-color: #eee;
-            cursor: not-allowed;
-        }
-        button {
-            background-color: #4285f4;
-            color: white;
-            border: none;
-        }
-        .hidden {
-            display: none;
-        }
+  <meta charset="UTF-8">
+  <title>Ingreso Seguro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
- .logo {
-            max-width: 50px;
-            margin-bottom: 10px;
-        }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
 
-.hora {
-            text-align: left;
-            font-size: 14px;
-            color: #555;
-            margin-top: -10px;
-            margin-bottom: 10px;
-        }
+    .container {
+      max-width: 100%;
+      width: 95%;
+      margin: 30px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
-    </style>
+    .logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      max-width: 80%;
+      height: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+      font-size: 15px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    input[readonly] {
+      background-color: #eeeeee;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .hora {
+      text-align: left;
+      font-size: 13px;
+      color: #666;
+      margin-top: -10px;
+    }
+
+    /* Responsive específico */
+    @media screen and (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+
+      label, input, select, button {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
+ <img src="https://sitcarsa.github.io/regsIng/LOGO.png" alt="Logo de la empresa" class="logo">
 
+  <h2>Formulario de Ingreso Seguro</h2>
 
-<img src="https://sitcarsa.github.io/regsIng/LOGO.png" alt="Logo de la empresa" class="logo">
+   <form id="secure-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSd3QzaCOG3jnU860QdrbHZkErO4JcLOZZ0zM-7xuD6LZoawZQ/formResponse" target="_self">
 
-    <h2>Registro de asistencia.</h2>
-
-    <form id="secure-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSd3QzaCOG3jnU860QdrbHZkErO4JcLOZZ0zM-7xuD6LZoawZQ/formResponse" target="_self">
-        
- <label>Nombre.:</label>
+   <label>Nombre.:</label>
         <select id="nombre" name="entry.7241129" required>
             <option value="" disabled selected>Seleccione un nombre</option>
 
-//TI
-            <option value="LUIS DIAZ">LUIS DIAZ</option>
-            <option value="JAVIER VARGAS">JAVIER VARGAS</option>
-
-//Operaciones
-            <option value="ANDRES MUÑOZ">ANDRES MUÑOZ</option>
-
-//RH
-            <option value="DIANA MARTINEZ">DIANA MARTINEZ</option>
-	   <option value="ANDREA ALFARO">ANDREA ALFARO</option>
-
-//Contabilidad.
-	   <option value="FELIPE GARCIA">FELIPE GARCIA</option>
-
+	   <option value="ANDREA ALFARO">ALFARO PALMA ANDREA DEL PILAR</option>
+	   <option value="ARFFY ALONSO">ALONSO PINILLA ARFFY KAROLAINN</option>
+	   <option value="MILDREDIS ALVARADO">ALVARADO AVILA MARIA MILDREDIS</option>
+	   <option value="PAULA BELTRAN">ANNICCIARICO BELTRAN PAULA ANDREA</option>
+	   <option value="ERICA ARIAS">ARIAS BUITRAGO ERICA MILENA</option>
+	   <option value="NAYIBE BARAHONA">BARAHONA ORJUELA NAYIBE</option>
+	   <option value="FRANCINETH BEDOYA">BEDOYA HOYOS FRANCINETH</option>
+	   <option value="CARMEN BELTRAN">BELTRAN CORTES CARMEN SOFIA</option>
+	   <option value="ANGIE BELTRAN">BELTRAN HERRERA ANGIE TATIANA</option>
+	   <option value="PAULA PIMIENTA">BELTRAN PIMIENTA PAULA ANDREA</option>
+	   <option value="DAVID BENAVIDES">BENAVIDES AREVALO DAVID FELIPE</option>
+	   <option value="ANGIE BERMEO">BERMEO QUINTERO ANGIE PAOLA</option>
+	   <option value="JAIRO BERNAL">BERNAL GARCIA JAIRO ALFONSO</option>
+	   <option value="JORGE BUITRAGO">BUITRAGO CHAVES JORGE ALBERTO</option>
+	   <option value="EUGENIO BUITRAGO">BUITRAGO TORRES EUGENIO</option>
+	   <option value="MERCEDES CALDUCHO">CALDUCHO TORRES MERCEDES</option>
+	   <option value="MARTHA CANO">CANO OCAMPO MARTHA LILIANA</option>
+	   <option value="ADRIANA CARDENAS">CARDENAS HERNANDEZ LUZ ADRIANA</option>
+	   <option value="JAIR CARREÑO">CARREÑO VEGA JAIR SANTIAGO</option>
+	   <option value="DIOMEDES CASTAÑEDA">CASTAÑEDA PRIETO DIOMEDES</option>
+	   <option value="BRAYAN CASTELLANOS">CASTELLANOS PRADA BRAYAN AUGUSTO</option>
+	   <option value="SOFIA CAVADIA">CAVADIA DURANGO ELCY SOFIA</option>
+	   <option value="WILMER CHAPERRO">CHAPERRO CHAPARRO WILMER</option>
+	   <option value="VERONIKA CUBILLOS">CUBILLOS TELLEZ VERONIKA LORENA</option>
+	   <option value="MARIA DAZA">DAZA MARTINEZ MARIA PAULA</option>
+	   <option value="MARTHA DELGADO">DELGADO BETANCOURT MARTHA LUCIA</option>
+	   <option value="LUIS DIAZ">DIAZ ALVARADO LUIS EDUARDO</option>
+	   <option value="STEFANI DIAZ">DIAZ MENGUAN STEFANI</option>
+	   <option value="LINDA GALLEGO">GALLEGO GOMEZ LINDA MARIA</option>
+	   <option value="ADRIANA GARCIA">GARCIA CUERVO HELEN ADRIANA</option>
+	   <option value="LAURA GARCIA">GARCIA QUEBRAOLLA LAURA VALENTINA</option>
+	   <option value="FELIPE GARCIA">GARCIA ULLOA ANDRES FELIPE</option>
+	   <option value="DORA GARZON">GARZON RUIZ DORA BEATRIZ</option>
+	   <option value="HUGO GONZALEZ">GONZALEZ ALVARADO HUGO ALEJANDRO</option>
+	   <option value="JOSE GONZALEZ">GONZALEZ GONZALEZ JOSE MANUEL</option>
+	   <option value="RICARDO HERNANDEZ">HERNANDEZ BARBOSA RICARDO</option>
+	   <option value="YENNY HERNANDEZ">HERNANDEZ BARRERA YENNY</option>
+	   <option value="DIANA HERRERA">HERRERA PIZA DIANA KATHERINE</option>
+	   <option value="DANNA BELTRAN">HORMANZA BELTRAN DANNA STEFANY</option>
+	   <option value="JEAN HOYOS">HOYOS MARTINEZ JEAN CARLOS</option>
+	   <option value="JULIAN MALAGON">MALAGON SANCHEZ JULIAN DAVID</option>
+	   <option value="NIDIA MARIN">MARIN BARRIOS NIDIA MARYORI</option>
+	   <option value="DIANA MARTINEZ">MARTINEZ CASTRO DIANA MARCELA</option>
+	   <option value="SONIA MARTINEZ">MARTINEZ MARTIN SONIA RAQUEL</option>
+	   <option value="GABRIEL MARTINEZ">MARTINEZ ORTEGA GABRIEL ANDRES</option>
+	   <option value="LEIDY MENDOZA">MENDOZA GARCIA LEIDY JULIENTH</option>
+	   <option value="MARLENY MENDOZA">MENDOZA MARIN MARLENY</option>
+	   <option value="ANYI MERCHAN">MERCHAN CADENA ANYI CATALINA</option>
+	   <option value="SANDRA MONROY">MONROY RIVERA SANDRA MILENA</option>
+	   <option value="YUDY MORA">MORA VEGA YUDY</option>
+	   <option value="LUCIA MORENO">MORENO GARCIA LUCIA</option>
+	   <option value="MARIO MUÑOZ">MUÑOZ ARIAS MARIO ERNESTO</option>
+	   <option value="SEBASTIAN MUÑOZ">MUÑOZ MENDEZ SEBASTIAN FELIPE</option>
+	   <option value="ANDRES MUÑOZ">MUÑOZ RODRIGUEZ GIOVANNI ANDRES</option>
+	   <option value="ANGY NOVA">NOVA LEON ANGY MILENA</option>
+	   <option value="LEVER ORTIZ">ORTIZ MORALES LEVER CIRON</option>
+	   <option value="LEIDER PALOMO">PALOMO MANOSALVA LEIDER ALEJANDRO</option>
+	   <option value="PEÑA VACA JEIMMY MILENA">JEIMMY PEÑA</option>
+	   <option value="ADRIANA PINZON">PINZON ADRIANA</option>
+	   <option value="YULI QUIROGA">QUIROGA MUÑOZ YULI ANDREA</option>
+	   <option value="DANIEL RAMIREZ">RAMIREZ VILLALMIL DANIEL FELIPE</option>
+	   <option value="NATALIA RATIVA">RATIVA CONTRERAS NATALIA</option>
+	   <option value="ANDREA REDONDO">REDONDO AGUDELO ANDREA LILIANA</option>
+	   <option value="JUAN RODRIGUEZ">RODRIGUEZ GALINDO JUAN CARLOS</option>
+	   <option value="GLORIA RODRIGUEZ">RODRIGUEZ GLORIA NELLY</option>
+	   <option value="MIREYA RODRIGUEZ">RODRIGUEZ JIMENEZ MIREYA</option>
+	   <option value="AURORA RODRIGUEZ">RODRIGUEZ PEÑA LUZ AURORA</option>
+	   <option value="JOHN RODRIGUEZ">RODRIGUEZ ROJAS JOHN ALEXANDER</option>
+	   <option value="MARIO RODRIGUEZ">RODRIGUEZ SOCHA MARIO</option>
+	   <option value="SANTIAGO RODRIGUEZ">RODRIGUEZ SOCHA SANTIAGO</option>
+	   <option value="FRANCIS ROMERO">ROMERO MUNEVAR FRANCIS</option>
+	   <option value="NICOLAS ROMERO">ROMERO QUINTERO NICOLAS</option>
+	   <option value="EDWARD RONDON">RONDON MARTINEZ EDWARD SMIT</option>
+	   <option value="DIANA SANCHEZ">SANCHEZ RAMIEREZ DIANA MARCELA</option>
+	   <option value="DIANA SIERRA">SIERRA ZAPATA DIANA MILENA</option>
+	   <option value="IRENE SILVA">SILVA PINZON IRENE</option>
+	   <option value="DIANA SOSA">SOSA PEÑA DIANA DEL PILA</option>
+	   <option value="SERGIO TELLEZ">TELLEZ ROJAS SERGIO ANTONIO</option>
+	   <option value="ANDERSON VARGAS">VARGAS ARANGO ANDERSON</option>
+	   <option value="DANNA VARGAS">VARGAS ARANGO DANNA MARLEY</option>
+	   <option value="DORA VARGAS">VARGAS BULLA DORA LIGIA</option>
+	   <option value="JOSE VARGAS">VARGAS GONZALES JOSE GILBERTO</option>
+	   <option value="CAMILO VARGAS">VARGAS PÁBON CAMILO ANDRES</option>
+	   <option value="ALEJANDRA VELASQUEZ">VELASQUEZ OVIEDO JEIMMY ALEJANDRA</option>
+	   <option value="BRIAN VILLALBA">VILLALBA ESTRADA BRIAN ERIK</option>
         </select>
-
 
          <label>Tipo de registro:</label>
         <select name="entry.933602916" required>
@@ -107,6 +215,7 @@
 	<div class="hora" id="hora-actual"></div>
  
 </div>
+
 
 <script>
   // Captura coordenadas y llena campo
@@ -130,36 +239,197 @@
     // Cambiar proceso automáticamente según el nombre seleccionado
     document.getElementById('nombre').addEventListener('change', function() {
         const procesoField = document.getElementById('proceso');
-        if (this.value === "LUIS DIAZ") {
-            procesoField.value = "T.I";
-        } else if (this.value === "JAVIER VARGAS") {
-            procesoField.value = "T.I.";
-  } else if (this.value === "ANDRES MUÑOZ") {
-            procesoField.value = "OPERACIONES.";
+
+//GESTION HUMANA
+        if (this.value === "ANDREA ALFARO") {
+            procesoField.value = "GESTIÓN HUMANA.";
+        } else if (this.value === "EUGENIO BUITRAGO") {
+            procesoField.value = "GESTIÓN HUMANA.";
+  } else if (this.value === "JOSE GONZALEZ") {
+            procesoField.value = "GESTIÓN HUMANA.";
  } else if (this.value === "DIANA MARTINEZ") {
-            procesoField.value = "RECURSOS HUMANOS.";
-} else if (this.value === "ANDREA ALFARO") {
-            procesoField.value = "RECURSOS HUMANOS.";
+            procesoField.value = "GESTIÓN HUMANA.";
+
+//TI
+} else if (this.value === "LUIS DIAZ") {
+            procesoField.value = "GESTIÓN TI.";
+
+
+// CONTABILIDAD.
+} else if (this.value === "PAULA BELTRAN") {
+            procesoField.value = "CONTABILIDAD.";
+} else if (this.value === "NAYIBE BARAHONA") {
+            procesoField.value = "CONTABILIDAD.";
 } else if (this.value === "FELIPE GARCIA") {
             procesoField.value = "CONTABILIDAD.";
+} else if (this.value === "JEAN HOYOS") {
+            procesoField.value = "CONTABILIDAD.";
+} else if (this.value === "SANDRA MONROY") {
+            procesoField.value = "CONTABILIDAD.";
+} else if (this.value === "ANGY NOVA") {
+            procesoField.value = "CONTABILIDAD.";
+} else if (this.value === "GLORIA RODRIGUEZ") {
+            procesoField.value = "CONTABILIDAD.";
+} else if (this.value === "JOSE VARGAS") {
+            procesoField.value = "CONTABILIDAD.";
+} else if (this.value === "BRIAN VILLALBA") {
+            procesoField.value = "CONTABILIDAD.";
 
-        } else {
-            procesoField.value = "";
+// GESTIÓN DOCUMENTAL
+} else if (this.value === "ERICA ARIAS") {
+            procesoField.value = "GESTIÓN DOCUMENTAL.";
+} else if (this.value === "HUGO GONZALEZ") {
+            procesoField.value = "GESTIÓN DOCUMENTAL.";
+} else if (this.value === "MERCEDES CALDUCHO") {
+            procesoField.value = "GESTIÓN DOCUMENTAL.";
+} else if (this.value === "JULIAN MALAGON") {
+            procesoField.value = "GESTIÓN DOCUMENTAL.";
+
+// MOTORIZADOS
+} else if (this.value === "JORGE BUITRAGO") {
+            procesoField.value = "MOTORIZADOS.";
+} else if (this.value === "WILMER CHAPERRO") {
+            procesoField.value = "MOTORIZADOS.";
+} else if (this.value === "LEVER ORTIZ") {
+            procesoField.value = "MOTORIZADOS.";
+} else if (this.value === "JUAN RODRIGUEZ") {
+            procesoField.value = "MOTORIZADOS.";
+
+// OPERACIONES.
+} else if (this.value === "MILDREDIS ALVARADO") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "CARMEN BELTRAN") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "JAIRO BERNAL") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "SOFIA CAVADIA") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "MARTHA DELGADO") {
+            procesoField.value = "OPERACIONES - DISTRICAR NORTE.";
+} else if (this.value === "LINDA GALLEGO") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "ADRIANA GARCIA") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "DORA GARZON") {
+            procesoField.value = "OPERACIONES  - DISTRICAR NORTE.";
+} else if (this.value === "RICARDO HERNANDEZ") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "DIANA HERRERA") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "LUCIA MORENO") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "MARIO MUÑOZ") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "ANDRES MUÑOZ") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "AURORA RODRIGUEZ") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "JOHN RODRIGUEZ") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "MARIO RODRIGUEZ") {
+            procesoField.value = "OPERACIONES.";
+} else if (this.value === "FRANCIS ROMERO") {
+            procesoField.value = "OPERACIONES.  - DISTRICAR SUR";
+} else if (this.value === "IRENE SILVA") {
+            procesoField.value = "OPERACIONES  - ABASTOS.";
+} else if (this.value === "DIANA SOSA") {
+            procesoField.value = "OPERACIONES - CIUDAD JARDIN.";
+} else if (this.value === "DORA VARGAS") {
+            procesoField.value = "OPERACIONES - SAN ANTONIO.";
+
+// EXTERNO.
+} else if (this.value === "MARLENY MENDOZA") {
+            procesoField.value = "EXTERNO.";
+} else if (this.value === "SANTIAGO RODRIGUEZ") {
+            procesoField.value = "EXTERNO.";
+} else if (this.value === "SERGIO TELLEZ") {
+            procesoField.value = "EXTERNO.";
+} else if (this.value === "ALEJANDRA VELASQUEZ") {
+            procesoField.value = "EXTERNO.";
+
+// ACTIVOS.
+} else if (this.value === "ARFFY ALONSO") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "FRANCINETH BEDOYA") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "ANGIE BELTRAN") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "PAULA PIMIENTA") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "ADRIANA CARDENAS") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "LAURA GARCIA") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "YENNY HERNANDEZ") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "SONIA MARTINEZ") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "GABRIEL MARTINEZ") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "LEIDY MENDOZA") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "ANYI MERCHAN") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "YUDY MORA") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "SEBASTIAN MUÑOZ") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "LEIDER PALOMO") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "DANIEL RAMIREZ") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "ANDREA REDONDO") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "NICOLAS ROMERO") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "EDWARD RONDON") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "ANDERSON VARGAS") {
+            procesoField.value = "ACTIVOS.";
+} else if (this.value === "CAMILO VARGAS") {
+            procesoField.value = "ACTIVOS.";
+
+// HIPOTECARIO.
+} else if (this.value === "DAVID BENAVIDES") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "ANGIE BERMEO") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "MARTHA CANO") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "JAIR CARREÑO") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "DIOMEDES CASTAÑEDA") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "BRAYAN CASTELLANOS") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "VERONIKA CUBILLOS") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "MARIA DAZA") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "STEFANI DIAZ") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "DANNA BELTRAN") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "NIDIA MARIN") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "JEIMMY PEÑA") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "ADRIANA PINZON") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "YULI QUIROGA") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "NATALIA RATIVA") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "MIREYA RODRIGUEZ") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "DIANA SANCHEZ") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "DIANA SIERRA") {
+            procesoField.value = "HIPOTECARIO.";
+} else if (this.value === "DANNA VARGAS") {
+            procesoField.value = "HIPOTECARIO.";
         }
     });
-
-
-
-    // Mostrar hora actual debajo del botón
-    function mostrarHora() {
-        const ahora = new Date();
-        const hora = ahora.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        document.getElementById('hora-actual').textContent = "Hora actual: " + hora;
-    }
-
-    // Cargar hora al abrir
-    mostrarHora();
- 
 
     // Envío del formulario con validación
     document.getElementById('secure-form').addEventListener('submit', function(e){
@@ -171,6 +441,7 @@
             alert('Espere que se cargue la ubicación antes de enviar.');
             return;
         }
+
 
         const data = new FormData(form);
 
@@ -185,8 +456,6 @@
         
         });
     });
-
-
 
 </script>
 
