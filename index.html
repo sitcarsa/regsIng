@@ -1,114 +1,122 @@
-﻿<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Ingreso Seguro</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Registro de Ingreso / Salida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-    }
-
-    .container {
-      max-width: 100%;
-      width: 95%;
-      margin: 30px auto;
-      background-color: #ffffff;
+      font-family: Arial, sans-serif;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: #f2f2f2;
     }
 
-    .logo {
-      display: block;
-      margin: 0 auto 20px auto;
-      max-width: 80%;
-      height: auto;
+    
+    .container {
+      background-color: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
-
     h2 {
       text-align: center;
-      font-size: 22px;
-      margin-bottom: 20px;
     }
-
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
     label {
-      font-weight: bold;
-      margin-top: 15px;
       display: block;
-      font-size: 15px;
+      margin-top: 10px;
     }
-
-    input, select, button {
+    input, select {
       width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
     }
-
-    input[readonly] {
-      background-color: #eeeeee;
+    .readonly {
+      background-color: white;
     }
-
-    button {
-      background-color: #007bff;
-      color: white;
+    #hora {
       font-weight: bold;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      color: #333;
     }
 
-    button:hover {
-      background-color: #0056b3;
-    }
+	button {
+	margin-top: 20px;
+	padding: 10px;
+	width: 100%;
+	background: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	}
+    button[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  z-index: 10;
+  position: relative;
+}
 
-    .hora {
-      text-align: left;
-      font-size: 13px;
-      color: #666;
-      margin-top: -10px;
-    }
+     .logo {
+            max-width: 50px;
+            margin-bottom: 10px;
+     }
+.hidden {
+  display: none;
+}
 
-    /* Responsive específico */
-    @media screen and (max-width: 480px) {
-      h2 {
-        font-size: 20px;
-      }
-
-      label, input, select, button {
-        font-size: 15px;
-      }
-
-      .container {
-        padding: 15px;
-      }
-    }
   </style>
 </head>
 <body>
 
-<div class="container">
- <img src="https://sitcarsa.github.io/regsIng/LOGO.png" alt="Logo de la empresa" class="logo">
+  <!-- Google Sign-In -->
+  <div id="g_id_onload"
+      data-client_id="913719289694-nkf9acf2o7habopplloaoul2ufagomq1.apps.googleusercontent.com"
+      data-context="signin"
+      data-ux_mode="popup"
+      data-callback="handleCredentialResponse"
+      data-auto_prompt="true">
+  </div>
 
-  <h2>Formulario de Ingreso Seguro</h2>
+  <div class="g_id_signin"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left">
+  </div>
 
-   <form id="secure-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSd3QzaCOG3jnU860QdrbHZkErO4JcLOZZ0zM-7xuD6LZoawZQ/formResponse" target="_self">
+  <p id="usuarioLogueado" style="font-weight: bold; margin-top: 10px;"></p>
 
-   <label>Nombre.:</label>
-        <select id="nombre" name="entry.7241129" required>
-            <option value="" disabled selected>Seleccione un nombre</option>
+  
+  <div class="container">
 
-	   <option value="ANDREA ALFARO">ALFARO PALMA ANDREA DEL PILAR</option>
+  <img src="https://sitcarsa.github.io/regsIng/LOGO.png" alt="Logo de la empresa" class="logo">
+
+    <h2>Registro de Ingreso / Salida</h2>
+    <form id="secure-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSd3QzaCOG3jnU860QdrbHZkErO4JcLOZZ0zM-7xuD6LZoawZQ/formResponse" target="_self">
+  
+
+  <label for="nombre">Nombre:</label>
+  <select id="nombre" name="entry.7241129" required>
+  <option value="" disabled selected>Seleccione un nombre</option>
+
+   <option value="ANDREA ALFARO">ALFARO PALMA ANDREA DEL PILAR</option>
 	   <option value="ARFFY ALONSO">ALONSO PINILLA ARFFY KAROLAINN</option>
 	   <option value="MILDREDIS ALVARADO">ALVARADO AVILA MARIA MILDREDIS</option>
 	   <option value="PAULA BELTRAN">ANNICCIARICO BELTRAN PAULA ANDREA</option>
@@ -193,267 +201,121 @@
 	   <option value="CAMILO VARGAS">VARGAS PÁBON CAMILO ANDRES</option>
 	   <option value="ALEJANDRA VELASQUEZ">VELASQUEZ OVIEDO JEIMMY ALEJANDRA</option>
 	   <option value="BRIAN VILLALBA">VILLALBA ESTRADA BRIAN ERIK</option>
-        </select>
 
-         <label>Tipo de registro:</label>
-        <select name="entry.933602916" required>
-            <option value="" disabled selected>Seleccione una opción</option>
-            <option value="Ingreso">Ingreso</option>
-            <option value="Salida">Salida</option>
-        </select>
+  </select>
 
+  <label for="proceso">Proceso:</label>
+<input type="text" id="proceso" name="entry.1170449751" placeholder="------" readonly required>
 
-  <label>Proceso.:</label>
-        <input type="text" id="proceso" name="entry.1170449751" placeholder="------" readonly required>
+  <label for="tipo">Tipo de registro:</label>
+  <select id="tipo" name="entry.933602916" required>
+  <option value="" disabled selected>Seleccione una opción</option>
 
-       <label>Ubicación geográfica:</label>
-        <input type="text" id="geo" name="entry.2081593853" readonly placeholder="Detectando ubicación..." required>
+    <option value="Ingreso">Ingreso</option>
+    <option value="Salida">Salida</option>
+  </select>
 
-        <button type="submit">Enviar.</button>
-    </form>
+  <label for="ubicacion">Ubicación:</label>
+  <input type="text" id="ubicacion" name="entry.2081593853" readonly placeholder="Detectando ubicación..." required>
 
-	<div class="hora" id="hora-actual"></div>
- 
-</div>
+  <label for="correo">Correo electrónico:</label>
+  <input type="email" id="correo" name="entry.1926819478" class="readonly" readonly>
+
+  <label>Hora actual:</label>
+  <div id="hora"></div>
+
+  <button type="submit">Enviar registro</button>
+</form>
+  </section>
+    
 <script>
-  // Captura coordenadas y llena campo
+    // Captura coordenadas y llena campo
     function obtenerUbicacion() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 const lat = position.coords.latitude.toFixed(6);
                 const lon = position.coords.longitude.toFixed(6);
-                document.getElementById('geo').value = lat + "," + lon;
+                document.getElementById('ubicacion').value = lat + "," + lon;
             }, function(error) {
-                document.getElementById('geo').value = "Error: " + error.message;
+                document.getElementById('ubicacion').value = "Error: " + error.message;
             });
         } else {
-            document.getElementById('geo').value = "Geolocalización no soportada";
+            document.getElementById('ubicacion').value = "Geolocalización no soportada";
         }
     }
 
    // Ejecutar al cargar
     window.onload = obtenerUbicacion;
 
-    // Cambiar proceso automáticamente según el nombre seleccionado
-    document.getElementById('nombre').addEventListener('change', function() {
-        const procesoField = document.getElementById('proceso');
+  // Asignar proceso según nombre
+  const procesos = {
+    "Juan Pérez": "Soporte Técnico",
+    "María Gómez": "Recursos Humanos",
+    "Carlos Ruiz": "Desarrollo TI"
+  };
 
-//GESTION HUMANA
-        if (this.value === "ANDREA ALFARO") {
-            procesoField.value = "GESTIÓN HUMANA.";
-        } else if (this.value === "EUGENIO BUITRAGO") {
-            procesoField.value = "GESTIÓN HUMANA.";
-  } else if (this.value === "JOSE GONZALEZ") {
-            procesoField.value = "GESTIÓN HUMANA.";
- } else if (this.value === "DIANA MARTINEZ") {
-            procesoField.value = "GESTIÓN HUMANA.";
+  document.getElementById("nombre").addEventListener("change", function () {
+    const nombre = this.value;
+    document.getElementById("proceso").value = procesos[nombre] || "";
+  });
 
-//TI
-} else if (this.value === "LUIS DIAZ") {
-            procesoField.value = "GESTIÓN TI.";
+  // Mostrar hora actual
+  function actualizarHora() {
+    const ahora = new Date();
+    const horaFormateada = ahora.toLocaleTimeString();
+    document.getElementById("hora").textContent = horaFormateada;
+  }
+  setInterval(actualizarHora, 1000);
+  actualizarHora();
 
+      function handleCredentialResponse(response) {
+      const data = jwt_decode(response.credential);
+      const correo = data.email;
+      const nombre = data.name;
 
-// CONTABILIDAD.
-} else if (this.value === "PAULA BELTRAN") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "NAYIBE BARAHONA") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "FELIPE GARCIA") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "JEAN HOYOS") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "SANDRA MONROY") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "ANGY NOVA") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "GLORIA RODRIGUEZ") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "JOSE VARGAS") {
-            procesoField.value = "CONTABILIDAD.";
-} else if (this.value === "BRIAN VILLALBA") {
-            procesoField.value = "CONTABILIDAD.";
+      document.getElementById("correo").value = correo;
+      document.getElementById("usuarioLogueado").textContent = "Bienvenido, " + nombre + " (" + correo + ")";
+      document.querySelector(".g_id_signin").style.display = "none";
+    }
 
-// GESTIÓN DOCUMENTAL
-} else if (this.value === "ERICA ARIAS") {
-            procesoField.value = "GESTIÓN DOCUMENTAL.";
-} else if (this.value === "HUGO GONZALEZ") {
-            procesoField.value = "GESTIÓN DOCUMENTAL.";
-} else if (this.value === "MERCEDES CALDUCHO") {
-            procesoField.value = "GESTIÓN DOCUMENTAL.";
-} else if (this.value === "JULIAN MALAGON") {
-            procesoField.value = "GESTIÓN DOCUMENTAL.";
-
-// MOTORIZADOS
-} else if (this.value === "JORGE BUITRAGO") {
-            procesoField.value = "MOTORIZADOS.";
-} else if (this.value === "WILMER CHAPERRO") {
-            procesoField.value = "MOTORIZADOS.";
-} else if (this.value === "LEVER ORTIZ") {
-            procesoField.value = "MOTORIZADOS.";
-} else if (this.value === "JUAN RODRIGUEZ") {
-            procesoField.value = "MOTORIZADOS.";
-
-// OPERACIONES.
-} else if (this.value === "MILDREDIS ALVARADO") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "CARMEN BELTRAN") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "JAIRO BERNAL") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "SOFIA CAVADIA") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "MARTHA DELGADO") {
-            procesoField.value = "OPERACIONES - DISTRICAR NORTE.";
-} else if (this.value === "LINDA GALLEGO") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "ADRIANA GARCIA") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "DORA GARZON") {
-            procesoField.value = "OPERACIONES  - DISTRICAR NORTE.";
-} else if (this.value === "RICARDO HERNANDEZ") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "DIANA HERRERA") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "LUCIA MORENO") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "MARIO MUÑOZ") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "ANDRES MUÑOZ") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "AURORA RODRIGUEZ") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "JOHN RODRIGUEZ") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "MARIO RODRIGUEZ") {
-            procesoField.value = "OPERACIONES.";
-} else if (this.value === "FRANCIS ROMERO") {
-            procesoField.value = "OPERACIONES.  - DISTRICAR SUR";
-} else if (this.value === "IRENE SILVA") {
-            procesoField.value = "OPERACIONES  - ABASTOS.";
-} else if (this.value === "DIANA SOSA") {
-            procesoField.value = "OPERACIONES - CIUDAD JARDIN.";
-} else if (this.value === "DORA VARGAS") {
-            procesoField.value = "OPERACIONES - SAN ANTONIO.";
-
-// EXTERNO.
-} else if (this.value === "MARLENY MENDOZA") {
-            procesoField.value = "EXTERNO.";
-} else if (this.value === "SANTIAGO RODRIGUEZ") {
-            procesoField.value = "EXTERNO.";
-} else if (this.value === "SERGIO TELLEZ") {
-            procesoField.value = "EXTERNO.";
-} else if (this.value === "ALEJANDRA VELASQUEZ") {
-            procesoField.value = "EXTERNO.";
-
-// ACTIVOS.
-} else if (this.value === "ARFFY ALONSO") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "FRANCINETH BEDOYA") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "ANGIE BELTRAN") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "PAULA PIMIENTA") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "ADRIANA CARDENAS") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "LAURA GARCIA") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "YENNY HERNANDEZ") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "SONIA MARTINEZ") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "GABRIEL MARTINEZ") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "LEIDY MENDOZA") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "ANYI MERCHAN") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "YUDY MORA") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "SEBASTIAN MUÑOZ") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "LEIDER PALOMO") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "DANIEL RAMIREZ") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "ANDREA REDONDO") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "NICOLAS ROMERO") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "EDWARD RONDON") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "ANDERSON VARGAS") {
-            procesoField.value = "ACTIVOS.";
-} else if (this.value === "CAMILO VARGAS") {
-            procesoField.value = "ACTIVOS.";
-
-// HIPOTECARIO.
-} else if (this.value === "DAVID BENAVIDES") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "ANGIE BERMEO") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "MARTHA CANO") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "JAIR CARREÑO") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "DIOMEDES CASTAÑEDA") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "BRAYAN CASTELLANOS") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "VERONIKA CUBILLOS") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "MARIA DAZA") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "STEFANI DIAZ") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "DANNA BELTRAN") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "NIDIA MARIN") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "JEIMMY PEÑA") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "ADRIANA PINZON") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "YULI QUIROGA") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "NATALIA RATIVA") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "MIREYA RODRIGUEZ") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "DIANA SANCHEZ") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "DIANA SIERRA") {
-            procesoField.value = "HIPOTECARIO.";
-} else if (this.value === "DANNA VARGAS") {
-            procesoField.value = "HIPOTECARIO.";
-        }
-    });
-
-    // Envío del formulario con validación
-    document.getElementById('secure-form').addEventListener('submit', function(e){
+       // Envío del formulario con validación
+    	document.getElementById('secure-form').addEventListener('submit', function(e){
         e.preventDefault();
         const form = e.target;
-        const geoField = document.getElementById('geo');
+        const geoField = document.getElementById('ubicacion');
+        const correo = document.getElementById('correo').value;
+
+            if (!correo) {
+        alert("Por favor, inicia sesión con Google antes de enviar.");
+        return;
+      }
 
         if (geoField.value === "" || geoField.value.includes("Error") || geoField.value === "Geolocalización no soportada") {
             alert('Espere que se cargue la ubicación antes de enviar.');
             return;
         }
-       const data = new FormData(form);
+        const data = new FormData(form);
 
        fetch(form.action, {
             method: 'POST',
             mode: 'no-cors',
             body: data
-        }).then(() => {
-            alert('Enviada exitosamente. Gracias.');
-            form.classList.add('hidden');
-            document.getElementById('section2').classList.remove('hidden');
-        
-        });
+      }).then(() => {
+        form.reset();
+        alert("Registro enviado correctamente.");
+	form.classList.add('hidden');
+        document.getElementById('secure-form').classList.add('hidden');
+        setTimeout(() => location.reload(), 3000);
+	.catch((error) => {
+  	alert("Ocurrió un error al enviar el registro.");
+  	console.error(error);
+		});// refresca la página después de 3 segundos
     });
 
+
 </script>
+    </form>
+  </div>
 
 </body>
 </html>
